@@ -6,7 +6,7 @@ import mongoose from 'mongoose';
 
 const app = express();
 
-mongoose.connect('mongodb://localhost/stockAnalyser', { useMongoClient: true });
+mongoose.connect('mongodb://root:asdfgh@ds161136.mlab.com:61136/stockanalyser', { useMongoClient: true });
 mongoose.connection.on('error', () => {
   console.log('########Mongo connection failed#############');
 });
