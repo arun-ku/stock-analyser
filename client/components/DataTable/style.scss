@@ -1,0 +1,44 @@
+.data-table {
+  .stock-row {
+    border-bottom: 1px solid #d3d3d3;
+    display: flex;
+    flex-direction: row;
+    .stock-column {
+      padding: 10px;
+      flex: 1;
+      &.stock-column-name {
+        flex: 8;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+      }
+      &.stock-column-date {
+        flex: 2;
+      }
+    }
+  }
+}
+
+.stock-info-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 10px;
+  border: 1px solid #d3d3d3;
+}
+
+.analytics-table-container {
+  display: flex;
+  padding: 30px;
+  flex-direction: row;
+  justify-content: space-between;
+  div {
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    td {
+      padding: 5px 12px;
+      border: 1px dotted;
+    }
+  }
+}

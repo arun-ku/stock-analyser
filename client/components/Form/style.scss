@@ -1,0 +1,122 @@
+.btn {
+  background: #e67e22;
+  padding: 10px 30px;
+  border: none;
+  outline: none;
+  font-weight: 900;
+}
+.base {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  flex-direction: column;
+  &.base-expanded{
+    .data-container{
+      flex: 9;
+      overflow: auto;
+      width: 100%;
+      padding: 10px;
+    }
+    .form-wrapper {
+      form{
+        height: 100%;
+        width: 100%;
+        flex-direction: row;
+        .submit-button {
+          flex: 1;
+          margin: 0px 15px;
+        }
+        .main-input {
+          flex: 4;
+          margin: 0px 15px;
+        }
+      }
+    }
+  }
+  .form-wrapper {
+    display: flex;
+    flex: 2;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    * {
+      transition: all 2s ease-in-out
+    }
+    form{
+      * {
+        transition: width .5s;
+      }
+      background-color: #3498db;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 200px;
+      width: 70%;
+      transition: width .1s;
+      .submit-button {
+        display: flex;
+        color: #fff;
+        justify-content: center;
+      }
+      .main-input {
+        display: flex;
+        padding: 10px;
+        margin-bottom: 10px;
+        width: 80%;
+      }
+    }
+  }
+  .group-title{
+    margin: 30px;
+    text-align: center;
+    font-size: 24px;
+    font-family: lato;
+    font-weight: 900;
+    color: #1abc9c;
+  }
+  .stock-row {
+    display: flex;
+    background-color: #2ecc71;
+    color: #ecf0f1;
+    font-weight: 600;
+    margin-bottom: 10px;
+    padding: 12px 0px;
+    cursor: pointer;
+    box-shadow: 2px 2px 15px rgba(0,0,0,.4);
+    .select-wrapper{
+      display: none;
+    }
+    &:hover {
+      box-shadow: 2px 2px 15px rgba(0,0,0,.6);
+    }
+    &.stock-row-selected{
+      box-shadow: 2px 2px 15px rgba(0,0,0,.6);
+      position: relative;
+      .select-wrapper {
+        height: 25px;
+        width: 25px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        position: absolute;
+        right: 10px;
+        background-color: #fff;
+        border: 2px solid #d35400;
+        color: #d35400;
+      }
+    }
+    .stock-column{
+      padding: 5px;
+      flex: 1;
+      &.stock-column-name {
+        flex: 4;
+      }
+      &.stock-column-date {
+        flex: 2;
+      }
+    }
+  }
+}
