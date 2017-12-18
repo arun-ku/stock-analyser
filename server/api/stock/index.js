@@ -16,7 +16,7 @@ var router = express.Router();
 router.post('/stock', (req,res) => {
   console.log('req.body', req.body)
 
-  const plainUrl = createUrlForNDays(req.body.plainUrl, (365 * 5));
+  const plainUrl = createUrlForNDays(req.body.plainUrl, (365 * 4));
 
   stockInfo.find({ id: req.body.id }).lean().exec((err, data) => {
     if (data && data.length) {
