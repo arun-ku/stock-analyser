@@ -16,7 +16,7 @@ var router = express.Router();
 router.post('/stock', (req,res) => {
   console.log('req.body', req.body)
 
-  const plainUrl = createUrlForNDays(req.body.plainUrl, (365 * 4));
+  const plainUrl = createUrlForNDays(req.body.plainUrl, (365 * 5));
 
   stockInfo.find({ id: req.body.id }).lean().exec((err, data) => {
     if (data && data.length) {
@@ -46,12 +46,12 @@ router.post('/stock', (req,res) => {
             ...obj,
           };
           if (obj.nav120) {
-            newObj.nav120Ratio = Number((obj.nav120/Number(obj.nav)).toFixed(2));
+            newObj.nav120Ratio = Number((Number(obj.nav)/obj.nav120).toFixed(2));
           } else {
             newObj.nav120Ratio = 0;
           }
           if (obj.nav200) {
-            newObj.nav200Ratio = Number((obj.nav200/Number(obj.nav)).toFixed(2));
+            newObj.nav200Ratio = Number((Number(obj.nav)/obj.nav200).toFixed(2));
           } else {
             newObj.nav200Ratio = 0;
           }
