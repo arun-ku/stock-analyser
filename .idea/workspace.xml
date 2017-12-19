@@ -59,7 +59,7 @@
         <entry file="file://$PROJECT_DIR$/client/redux/actions/Stock/index.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="234">
-              <caret line="25" column="16" lean-forward="false" selection-start-line="25" selection-start-column="16" selection-end-line="25" selection-end-column="16" />
+              <caret line="25" column="17" lean-forward="false" selection-start-line="25" selection-start-column="17" selection-end-line="25" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -492,12 +492,12 @@
       <workItem from="1513578092866" duration="12000" />
       <workItem from="1513580401071" duration="7878000" />
       <workItem from="1513591847147" duration="678000" />
-      <workItem from="1513662175820" duration="6643000" />
+      <workItem from="1513662175820" duration="6707000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="80564000" />
+    <option name="totallyTimeSpent" value="80628000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-4" width="1301" height="772" extended-state="6" />
@@ -918,7 +918,7 @@
     <entry file="file://$PROJECT_DIR$/client/redux/actions/Stock/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="234">
-          <caret line="25" column="16" lean-forward="false" selection-start-line="25" selection-start-column="16" selection-end-line="25" selection-end-column="16" />
+          <caret line="25" column="17" lean-forward="false" selection-start-line="25" selection-start-column="17" selection-end-line="25" selection-end-column="17" />
           <folding />
         </state>
       </provider>
