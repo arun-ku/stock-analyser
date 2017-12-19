@@ -46,12 +46,12 @@ router.post('/stock', (req,res) => {
             ...obj,
           };
           if (obj.nav120) {
-            newObj.nav120Ratio = Number((Number(obj.nav)/obj.nav120).toFixed(2));
+            newObj.nav120Ratio = Number((Number(obj.nav)/obj.nav120));
           } else {
             newObj.nav120Ratio = 0;
           }
           if (obj.nav200) {
-            newObj.nav200Ratio = Number((Number(obj.nav)/obj.nav200).toFixed(2));
+            newObj.nav200Ratio = Number((Number(obj.nav)/obj.nav200));
           } else {
             newObj.nav200Ratio = 0;
           }
@@ -91,10 +91,10 @@ router.post('/stock', (req,res) => {
           return newObj;
         });
 
-        max120 = Number(max120.toFixed(2));
-        min120 = Number(min120.toFixed(2));
-        max200 = Number(max200.toFixed(2));
-        min200 = Number(min200.toFixed(2));
+        max120 = Number(max120);
+        min120 = Number(min120);
+        max200 = Number(max200);
+        min200 = Number(min200);
 
         const AnalysisData = mappedData.map((dataObj, index) => {
           return (callback) => {

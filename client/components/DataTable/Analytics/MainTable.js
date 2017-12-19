@@ -5,12 +5,12 @@ class MainTable extends Component {
   render() {
     const { stockInfo } = this.props;
     const { min120, max120, min200, max200 } = stockInfo;
-    const avg120 = Number((min120 + ((max120 - min120)/2)).toFixed(2));
-    const avg200 = Number((min200 + ((max200 - min200)/2)).toFixed(2));
-    const x120 = Number((avg120 - min120).toFixed(2));
-    const x200 = Number((avg200 - min200).toFixed(2));
-    const xFactor120 = (x120 / 5).toTwoDecimals();
-    const xFactor200 = (x200 / 5).toTwoDecimals();
+    const avg120 = Number((min120 + ((max120 - min120)/2)));
+    const avg200 = Number((min200 + ((max200 - min200)/2)));
+    const x120 = Number((avg120 - min120));
+    const x200 = Number((avg200 - min200));
+    const xFactor120 = (x120 / 5);
+    const xFactor200 = (x200 / 5);
 
     if (!stockInfo || !Object.keys(stockInfo).length) {
       return <span />
@@ -31,28 +31,28 @@ class MainTable extends Component {
               </tr>
               <tr>
                 <td>Max</td>
-                <td>{max120}</td>
-                <td>{max200}</td>
+                <td>{(max120).toTwoDecimals()}</td>
+                <td>{(max200).toTwoDecimals()}</td>
               </tr>
               <tr>
                 <td>Min</td>
-                <td>{min120}</td>
-                <td>{min200}</td>
+                <td>{(min120).toTwoDecimals()}</td>
+                <td>{(min200).toTwoDecimals()}</td>
               </tr>
               <tr>
                 <td>Avg(max - min)</td>
-                <td>{avg120}</td>
-                <td>{avg200}</td>
+                <td>{(avg120).toTwoDecimals()}</td>
+                <td>{(avg200).toTwoDecimals()}</td>
               </tr>
               <tr>
                 <td>X(avg - min)</td>
-                <td>{x120}</td>
-                <td>{x200}</td>
+                <td>{(x120).toTwoDecimals()}</td>
+                <td>{(x200).toTwoDecimals()}</td>
               </tr>
               <tr>
                 <td>X/5</td>
-                <td>{xFactor120}</td>
-                <td>{xFactor200}</td>
+                <td>{(xFactor120).toTwoDecimals()}</td>
+                <td>{(xFactor200).toTwoDecimals()}</td>
               </tr>
               </tbody>
             </table>
@@ -89,8 +89,8 @@ class MainTable extends Component {
               </tr>
               <tr>
                 <td>5</td>
-                <td>{(min120)}</td>
-                <td>{(min200)}</td>
+                <td>{(min120).toTwoDecimals()}</td>
+                <td>{(min200).toTwoDecimals()}</td>
               </tr>
               </tbody>
             </table>
@@ -102,3 +102,5 @@ class MainTable extends Component {
 }
 
 export default MainTable;
+
+

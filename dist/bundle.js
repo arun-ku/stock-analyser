@@ -44693,12 +44693,12 @@ var MainTable = function (_Component) {
           min200 = stockInfo.min200,
           max200 = stockInfo.max200;
 
-      var avg120 = Number((min120 + (max120 - min120) / 2).toFixed(2));
-      var avg200 = Number((min200 + (max200 - min200) / 2).toFixed(2));
-      var x120 = Number((avg120 - min120).toFixed(2));
-      var x200 = Number((avg200 - min200).toFixed(2));
-      var xFactor120 = (x120 / 5).toTwoDecimals();
-      var xFactor200 = (x200 / 5).toTwoDecimals();
+      var avg120 = Number(min120 + (max120 - min120) / 2);
+      var avg200 = Number(min200 + (max200 - min200) / 2);
+      var x120 = Number(avg120 - min120);
+      var x200 = Number(avg200 - min200);
+      var xFactor120 = x120 / 5;
+      var xFactor200 = x200 / 5;
 
       if (!stockInfo || !Object.keys(stockInfo).length) {
         return _react2.default.createElement("span", null);
@@ -44755,12 +44755,12 @@ var MainTable = function (_Component) {
                   _react2.default.createElement(
                     "td",
                     null,
-                    max120
+                    max120.toTwoDecimals()
                   ),
                   _react2.default.createElement(
                     "td",
                     null,
-                    max200
+                    max200.toTwoDecimals()
                   )
                 ),
                 _react2.default.createElement(
@@ -44774,12 +44774,12 @@ var MainTable = function (_Component) {
                   _react2.default.createElement(
                     "td",
                     null,
-                    min120
+                    min120.toTwoDecimals()
                   ),
                   _react2.default.createElement(
                     "td",
                     null,
-                    min200
+                    min200.toTwoDecimals()
                   )
                 ),
                 _react2.default.createElement(
@@ -44793,12 +44793,12 @@ var MainTable = function (_Component) {
                   _react2.default.createElement(
                     "td",
                     null,
-                    avg120
+                    avg120.toTwoDecimals()
                   ),
                   _react2.default.createElement(
                     "td",
                     null,
-                    avg200
+                    avg200.toTwoDecimals()
                   )
                 ),
                 _react2.default.createElement(
@@ -44812,12 +44812,12 @@ var MainTable = function (_Component) {
                   _react2.default.createElement(
                     "td",
                     null,
-                    x120
+                    x120.toTwoDecimals()
                   ),
                   _react2.default.createElement(
                     "td",
                     null,
-                    x200
+                    x200.toTwoDecimals()
                   )
                 ),
                 _react2.default.createElement(
@@ -44831,12 +44831,12 @@ var MainTable = function (_Component) {
                   _react2.default.createElement(
                     "td",
                     null,
-                    xFactor120
+                    xFactor120.toTwoDecimals()
                   ),
                   _react2.default.createElement(
                     "td",
                     null,
-                    xFactor200
+                    xFactor200.toTwoDecimals()
                   )
                 )
               )
@@ -44962,12 +44962,12 @@ var MainTable = function (_Component) {
                   _react2.default.createElement(
                     "td",
                     null,
-                    min120
+                    min120.toTwoDecimals()
                   ),
                   _react2.default.createElement(
                     "td",
                     null,
-                    min200
+                    min200.toTwoDecimals()
                   )
                 )
               )
