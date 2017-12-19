@@ -22,6 +22,8 @@ export const saveStockDataForAnalysis = (id, plainUrl) => {
     return axios.post('/api/stock/stock', {
       id,
       plainUrl,
+    }, {
+      timeout: 10000,
     })
   }
 };
