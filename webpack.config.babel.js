@@ -1,9 +1,19 @@
 import path from 'path';
+import webpack from 'webpack';
 
 export default {
-  entry: './client/index.js',
+  entry: {
+    main: './client/index.js',
+    vendor: [
+      'react',
+      'react-dom',
+      'react-router-dom',
+      'redux-thunk',
+      'axios'
+    ]
+  },
   output: {
-    filename: 'bundle.js',
+    filename: '[name].js',
     path: path.resolve(__dirname, 'dist'),
   },
   module: {
@@ -28,5 +38,8 @@ export default {
     alias: {
       Actions: path.resolve(__dirname, './client/redux/actions/index')
     }
-  }
+  },
+  plugins: [
+    new webpack.optimize.CommonsChunkPlugin('vendor'),
+  ]
 }

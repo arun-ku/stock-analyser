@@ -20,9 +20,7 @@ require('./configs/register');
 
 app.use(bodyParser.json())
 
-app.use('/bundle.js', (req,res) => {
-  res.sendFile(path.resolve(__dirname, '../dist/bundle.js'));
-});
+app.use('/js', express.static('dist'));
 
 Routes(app);
 
