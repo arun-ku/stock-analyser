@@ -3,8 +3,11 @@ import path from 'path';
 import {parse as parseQueryString} from 'query-string';
 import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
+import compression from 'compression'
 
 const app = express();
+
+app.use(compression())
 
 mongoose.connect('mongodb://root:asdfgh@ds161136.mlab.com:61136/stockanalyser', { useMongoClient: true });
 mongoose.connection.on('error', () => {
