@@ -23,7 +23,7 @@ export const saveStockDataForAnalysis = (id, plainUrl) => {
       id,
       plainUrl,
     }, {
-      timeout: 8000,
+      timeout: 20000,
     })
   }
 };
