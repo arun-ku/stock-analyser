@@ -132,15 +132,22 @@ router.post('/stock', (req,res) => {
 router.get('/data', (req, res) => {
   const plainUrl = createUrlForNDays(req.query.url, 10);
   request(plainUrl, function (error, response, body) {
-    const mappedDataAll = body.split('\n').filter(name => name).map(name => name.split(';')).map(arr => ({
-      id: arr[0],
-      name: arr[1],
-      nav: arr[2],
-      repurchasePrice: arr[3],
-      salePrice: arr[4],
-      date: +new Date(arr[5]),
-    })).filter(obj => obj.salePrice && obj.date);
-
+    const mappedDataAll = body.split('\n').filter(name => name).map(name => name.split(';')).map(arr => {
+      if (!arr) {
+        return {}
+      }
+      return {
+        id: arr[0],
+        name: arr[1],
+        nav: arr[2],
+        repurchasePrice: arr[3],
+        salePrice: arr[4],
+        date: +new Date(arr[5]),
+      }
+    }).filter(obj => {
+      return obj.nav && obj.date
+    });
+    console.log(mappedDataAll)
     const IdsArray = mappedDataAll.map(data => data.id);
     const uniqueIds = [...new Set(IdsArray)];
     const allStocks = uniqueIds.map(id => {
@@ -154,6 +161,7 @@ router.get('/data', (req, res) => {
 
   });
 });
+
 router.get('/stockdata', (req, res) => {
   const id = req.query.id;
   stockInfo.findOne({ id }).lean().exec((err, stockInfo) => {
