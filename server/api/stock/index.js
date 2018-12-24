@@ -1,8 +1,9 @@
 import express from 'express';
 import request from 'request';
+import async from 'async';
+
 import stock from './stock.model';
 import stockInfo from './stockInfo.model';
-import async from 'async';
 
 import { createUrlForNDays } from '../../../utils/commonUtils'
 
@@ -147,7 +148,6 @@ router.get('/data', (req, res) => {
     }).filter(obj => {
       return obj.nav && obj.date
     });
-    console.log(mappedDataAll)
     const IdsArray = mappedDataAll.map(data => data.id);
     const uniqueIds = [...new Set(IdsArray)];
     const allStocks = uniqueIds.map(id => {

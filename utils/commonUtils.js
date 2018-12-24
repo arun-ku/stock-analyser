@@ -1,6 +1,14 @@
 import {parse as parseQueryString} from 'query-string';
 import moment from 'moment';
 
+import {
+  MUTUAL_FUND_KEY,
+  TYPE_KEY,
+  FROM_DATE_KEY,
+  TO_DATE_KEY,
+  NAV_DATA_URL,
+} from '../server/constants/apiConstants';
+
 export const getParsedQueryStringObject = (url) => {
   let parsedQueryString = parseQueryString(url);
   if(Object.keys(parsedQueryString).length == 0){
@@ -35,4 +43,38 @@ export const createUrlForNDays = (url, days) => {
   plainUrl += 'na=1';
 
   return plainUrl;
-}
+};
+
+export const getHistoryFetchingUrl = (params) => {
+  const {
+    mutualFund,
+    type,
+    fromDate,
+    toDate,
+  } = params;
+
+  return (
+    NAV_DATA_URL
+      .replace(MUTUAL_FUND_KEY, mutualFund)
+      .replace(TYPE_KEY, type)
+      .replace(FROM_DATE_KEY, fromDate)
+      .replace(TO_DATE_KEY, toDate)
+  );
+};
+
+export const mfNameFetchingUrl = (params) => {
+  const {
+    mutualFund,
+    type,
+    fromDate,
+    toDate,
+  } = params;
+
+  return (
+    NAV_DATA_URL
+      .replace(MUTUAL_FUND_KEY, mutualFund)
+      .replace(TYPE_KEY, type)
+      .replace(FROM_DATE_KEY, fromDate)
+      .replace(TO_DATE_KEY, toDate)
+  );
+};

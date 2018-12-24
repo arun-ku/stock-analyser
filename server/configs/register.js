@@ -4,7 +4,7 @@ Array.prototype.avgOfLast200 = function (index, prop) {
     total += Number(this[index - i][prop])
   }
   return Number((total/200))
-}
+};
 
 Array.prototype.avgOfLast124 = function (index, prop) {
   var total = 0
@@ -12,4 +12,4 @@ Array.prototype.avgOfLast124 = function (index, prop) {
     total += Number(this[index - i][prop])
   }
   return Number((total/120))
-}
+};
