@@ -185,8 +185,13 @@ router.get('/stocklist', (req, res) => {
   console.log(plainUrl);
   request(plainUrl, function (error, response, body) {
     if (!body) {
-      res.send({ allStocks: [] })
+      return res.send({ allStocks: [], test: true })
     }
+
+    if (body.indexOf(`No data found on the basis of selected parameters for this report`) > -1) {
+      return res.send({ allStocks: [], test: true })
+    }
+
     const mappedDataAll = body
       .split('\n') // split all rows to get individual rows
       .filter(row => !!row) // ignore rows which are empty
@@ -212,9 +217,8 @@ router.get('/stocklist', (req, res) => {
           isIndexFund: `${arr[1]}`.toLowerCase().indexOf('index fund') > -1,
         }
       })
-      .filter(obj => {
-        return !!(obj.nav && obj.date)
-      });
+
+
 
     const mappedDataNew = [];
     let currentIndex = -1;

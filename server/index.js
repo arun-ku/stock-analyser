@@ -16,14 +16,14 @@ mongoose.connection.once('open', function() {
 });
 
 import Routes from './routes';
+import path from 'path';
 
 require('./configs/register');
 
 app.use(bodyParser.json())
 
 app.use('/js', express.static('dist'));
-app.use('/images', express.static('dist/images'));
-
+app.use('/images', express.static(path.resolve(__dirname, '../dist/images')));
 Routes(app);
 
 app.listen(process.env.PORT || 3000, () => {

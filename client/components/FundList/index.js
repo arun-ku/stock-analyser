@@ -101,7 +101,7 @@ class FundList extends Component {
       return <Loader />;
     }
 
-    if (stocks.length === 0) {
+    if (stocks && stocks.length === 0) {
       return <ErrorPage />
     }
 
