@@ -2,18 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="82207858-cf9b-45bf-a537-b584d57da126" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/components/ErrorPage/cry.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/components/ErrorPage/cry1.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/components/ErrorPage/index.js" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/client/components/FundList/index.js" afterPath="$PROJECT_DIR$/client/components/FundList/index.js" />
-      <change beforePath="$PROJECT_DIR$/dist/main.js" afterPath="$PROJECT_DIR$/dist/main.js" />
-      <change beforePath="$PROJECT_DIR$/dist/vendor.js" afterPath="$PROJECT_DIR$/dist/vendor.js" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" afterPath="$PROJECT_DIR$/package-lock.json" />
-      <change beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change beforePath="$PROJECT_DIR$/server/api/stock/index.js" afterPath="$PROJECT_DIR$/server/api/stock/index.js" />
-      <change beforePath="$PROJECT_DIR$/server/index.js" afterPath="$PROJECT_DIR$/server/index.js" />
-      <change beforePath="$PROJECT_DIR$/webpack.config.babel.js" afterPath="$PROJECT_DIR$/webpack.config.babel.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -52,10 +41,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/components/ErrorPage/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="64">
+            <state relative-caret-position="-422">
               <caret line="31" column="16" lean-forward="false" selection-start-line="31" selection-start-column="16" selection-end-line="31" selection-end-column="16" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
@@ -91,15 +80,15 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/client/components/FundList/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="104" column="16" lean-forward="false" selection-start-line="104" selection-start-column="16" selection-end-line="104" selection-end-column="16" />
+            <state relative-caret-position="198">
+              <caret line="103" column="27" lean-forward="false" selection-start-line="103" selection-start-column="27" selection-end-line="103" selection-end-column="27" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
-                <marker date="1548149927330" expanded="true" signature="2645:4984" ph="..." />
-                <marker date="1548149927330" expanded="false" signature="2673:4970" ph="..." />
+                <marker date="1548151871971" expanded="true" signature="2660:4999" ph="..." />
+                <marker date="1548151871971" expanded="false" signature="2688:4985" ph="..." />
               </folding>
             </state>
           </provider>
@@ -217,11 +206,11 @@
         <option value="$PROJECT_DIR$/client/redux/actions/Stock/index.js" />
         <option value="$PROJECT_DIR$/client/components/DataTable/index.js" />
         <option value="$PROJECT_DIR$/client/components/FullScreenLoader/index.js" />
-        <option value="$PROJECT_DIR$/client/components/FundList/index.js" />
         <option value="$PROJECT_DIR$/server/api/stock/index.js" />
         <option value="$PROJECT_DIR$/webpack.config.babel.js" />
         <option value="$PROJECT_DIR$/server/index.js" />
         <option value="$PROJECT_DIR$/client/components/ErrorPage/index.js" />
+        <option value="$PROJECT_DIR$/client/components/FundList/index.js" />
       </list>
     </option>
   </component>
@@ -469,15 +458,16 @@
       <workItem from="1547890067435" duration="855000" />
       <workItem from="1548064328688" duration="12677000" />
       <workItem from="1548138873360" duration="4322000" />
-      <workItem from="1548144964978" duration="6528000" />
+      <workItem from="1548144964978" duration="6670000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="132102000" />
+    <option name="totallyTimeSpent" value="132244000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1299" height="743" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.242163" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -486,7 +476,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32843137" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4232026" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4232026" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -839,18 +829,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/components/FundList/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="104" column="16" lean-forward="false" selection-start-line="104" selection-start-column="16" selection-end-line="104" selection-end-column="16" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-            <marker date="1548149927330" expanded="true" signature="2645:4984" ph="..." />
-            <marker date="1548149927330" expanded="false" signature="2673:4970" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/@material-ui/core/es/Paper/Paper.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="107">
@@ -900,10 +878,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/components/ErrorPage/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="64">
+        <state relative-caret-position="-422">
           <caret line="31" column="16" lean-forward="false" selection-start-line="31" selection-start-column="16" selection-end-line="31" selection-end-column="16" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/components/FundList/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="103" column="27" lean-forward="false" selection-start-line="103" selection-start-column="27" selection-end-line="103" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+            <marker date="1548151871971" expanded="true" signature="2660:4999" ph="..." />
+            <marker date="1548151871971" expanded="false" signature="2688:4985" ph="..." />
           </folding>
         </state>
       </provider>
