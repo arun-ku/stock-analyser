@@ -22,6 +22,7 @@ require('./configs/register');
 app.use(bodyParser.json())
 
 app.use('/js', express.static('dist'));
+app.use('/images', express.static('dist/images'));
 
 Routes(app);
 

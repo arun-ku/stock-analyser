@@ -184,34 +184,37 @@ router.get('/stocklist', (req, res) => {
   const plainUrl = createUrlForNDays(url, 20);
   console.log(plainUrl);
   request(plainUrl, function (error, response, body) {
+    if (!body) {
+      res.send({ allStocks: [] })
+    }
     const mappedDataAll = body
       .split('\n') // split all rows to get individual rows
       .filter(row => !!row) // ignore rows which are empty
       .map(row => row.split(';')) // split values in each row by delimiter
       .map(arr => {  // create proper object for values
-      if (!arr) {
-        return {}
-      }
+        if (!arr) {
+          return {}
+        }
 
-      return {
-        id: arr[0],
-        name: arr[1],
-        nav: arr[2],
-        repurchasePrice: arr[3],
-        salePrice: arr[4],
-        date: +new Date(arr[5]),
-        isTaxSaving: `${arr[1]}`.toLowerCase().indexOf('elss') > -1 || `${arr[1]}`.toLowerCase().indexOf('tax') > -1,
-        isDividend: `${arr[1]}`.toLowerCase().indexOf('dividend') > -1,
-        isDirect: `${arr[1]}`.toLowerCase().indexOf('direct') > -1,
-        isRegular: `${arr[1]}`.toLowerCase().indexOf('regular') > -1,
-        isGrowth: `${arr[1]}`.toLowerCase().indexOf('growth') > -1,
-        isETF: `${arr[1]}`.toLowerCase().indexOf('exchange traded fund') > -1 || `${arr[1]}`.toLowerCase().indexOf('etf') > -1,
-        isIndexFund: `${arr[1]}`.toLowerCase().indexOf('index fund') > -1,
-      }
-    })
-    //   .filter(obj => {
-    //   return !!(obj.nav && obj.date)
-    // });
+        return {
+          id: arr[0],
+          name: arr[1],
+          nav: arr[2],
+          repurchasePrice: arr[3],
+          salePrice: arr[4],
+          date: +new Date(arr[5]),
+          isTaxSaving: `${arr[1]}`.toLowerCase().indexOf('elss') > -1 || `${arr[1]}`.toLowerCase().indexOf('tax') > -1,
+          isDividend: `${arr[1]}`.toLowerCase().indexOf('dividend') > -1,
+          isDirect: `${arr[1]}`.toLowerCase().indexOf('direct') > -1,
+          isRegular: `${arr[1]}`.toLowerCase().indexOf('regular') > -1,
+          isGrowth: `${arr[1]}`.toLowerCase().indexOf('growth') > -1,
+          isETF: `${arr[1]}`.toLowerCase().indexOf('exchange traded fund') > -1 || `${arr[1]}`.toLowerCase().indexOf('etf') > -1,
+          isIndexFund: `${arr[1]}`.toLowerCase().indexOf('index fund') > -1,
+        }
+      })
+      .filter(obj => {
+        return !!(obj.nav && obj.date)
+      });
 
     const mappedDataNew = [];
     let currentIndex = -1;

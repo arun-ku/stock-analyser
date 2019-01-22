@@ -31,7 +31,18 @@ export default {
         }, {
           loader: "sass-loader"
         }],
-      }
+      },
+      {
+        test: /\.(png|jpg|gif)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '/images/[hash].[ext]'
+            },
+          },
+        ],
+      },
     ]
   },
   resolve: {

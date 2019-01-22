@@ -10,6 +10,7 @@ import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Chip from '@material-ui/core/Chip';
+import ErrorPage from '../ErrorPage';
 import Loader from '../FullScreenLoader';
 
 import { getStockList, saveStockDataForAnalysis } from '../../redux/actions/Stock'
@@ -98,6 +99,10 @@ class FundList extends Component {
 
     if (stockListStatus === 'LOADING') {
       return <Loader />;
+    }
+
+    if (true) {
+      return <ErrorPage />
     }
 
     const bull = <span className={classes.bullet}>•</span>;
