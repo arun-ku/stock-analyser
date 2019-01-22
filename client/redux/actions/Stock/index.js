@@ -1,4 +1,5 @@
 import axios from 'axios';
+import get from 'lodash/get';
 export const getStockDataForAnalysis = (url) => {
   return (dispatch, getState) => {
     return axios.get('/api/stock/data', {
@@ -17,31 +18,72 @@ export const getStockDataForAnalysis = (url) => {
   }
 };
 
-export const saveStockDataForAnalysis = (id, plainUrl) => {
+export const saveStockDataForAnalysis = (params) => {
   return (dispatch, getState) => {
-    return axios.post('/api/stock/stock', {
-      id,
-      plainUrl,
-    }, {
+    return axios.post('/api/stock/stockDataById', params, {
       timeout: 40000,
     })
   }
 };
 
 
-export const getAnalysedData = (id) => {
+export const getAnalysedData = (params) => {
   return (dispatch, getState) => {
-    return axios.get('/api/stock/stockdata', {
-      params: {
-        id,
+    let count = 0;
+    axios.get('/api/stock/stockdata', {
+      params,
+    }).then(res => {
+      const stockInfo = get(res, 'data.stockInfo');
+      if (!(stockInfo && stockInfo.id)) {
+        const interval = setInterval(() => {
+          return axios.get('/api/stock/stockdata', {
+            params,
+          }).then(res => {
+            const stockInfo = get(res, 'data.stockInfo');
+            if (stockInfo && stockInfo.id) {
+              clearInterval(interval);
+              dispatch({
+                type: "STOCK_TABLE_DATA",
+                payload: res.data,
+              })
+            }
+            if (count >= 6) {
+              clearInterval(interval);
+              count = 0;
+              dispatch({
+                type: "SHOW_ERROR_MODAL",
+                data: {
+                  message: 'No data found! Please try after some time.'
+                },
+              })
+            } else {
+              count++;
+            }
+          });
+        }, 15000)
+      } else {
+        dispatch({
+          type: "STOCK_TABLE_DATA",
+          payload: res.data,
+        })
       }
+    });
+  }
+};
+
+/**
+ * New Api's
+ **/
+
+export const getStockList = (params) => {
+  return (dispatch) => {
+    return axios.get('/api/stock/stocklist', {
+      params,
     }).then(res => {
       dispatch({
-        type: "STOCK_TABLE_DATA",
+        type: "SET_STOCK_LIST",
         payload: res.data,
       })
     });
   }
 };
-
-

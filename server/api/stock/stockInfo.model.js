@@ -7,6 +7,7 @@ var StockInfoSchema = new Schema({
   max120: Number,
   min200: Number,
   min120: Number,
+  noOfRecords: Number,
 });
 
 module.exports = mongoose.model('StockInfo', StockInfoSchema);

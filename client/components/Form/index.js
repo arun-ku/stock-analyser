@@ -1,99 +1,118 @@
+
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import axios from 'axios';
+import PropTypes from 'prop-types';
+import Avatar from '@material-ui/core/Avatar';
+import Button from '@material-ui/core/Button';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import Assessment from '@material-ui/icons/Assessment';
+import Paper from '@material-ui/core/Paper';
+import Typography from '@material-ui/core/Typography';
+import withStyles from '@material-ui/core/styles/withStyles';
+import AutoSuggest from './AutoSuggest';
+import mfData from '../../../server/data/MFData';
+import MFTypes from '../../../server/data/MFTypes';
 
-import { getStockDataForAnalysis, saveStockDataForAnalysis } from 'Actions';
+const styles = theme => ({
+  main: {
+    width: 'auto',
+    display: 'block', // Fix IE 11 issue.
+    marginLeft: theme.spacing.unit * 3,
+    marginRight: theme.spacing.unit * 3,
+    [theme.breakpoints.up(400 + theme.spacing.unit * 3 * 2)]: {
+      width: 400,
+      marginLeft: 'auto',
+      marginRight: 'auto',
+    },
+  },
+  paper: {
+    marginTop: theme.spacing.unit * 14,
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    padding: `${theme.spacing.unit * 2}px ${theme.spacing.unit * 3}px ${theme.spacing.unit * 3}px`,
+  },
+  avatar: {
+    margin: theme.spacing.unit,
+    backgroundColor: theme.palette.secondary.main,
+  },
+  form: {
+    width: '100%', // Fix IE 11 issue.
+    marginTop: theme.spacing.unit,
+  },
+  submit: {
+    marginTop: theme.spacing.unit * 3,
+  },
+});
 
-import './style.scss';
-import DataRow from "./DataRow/index";
-
-class Form extends Component {
-
+class SignIn extends Component {
   state = {
-    data: [],
-    url: 'http://portal.amfiindia.com/DownloadNAVHistoryReport_Po.aspx?mf=21&tp=1&frmdt=18-Dec-2017&todt=18-Dec-2017',
+    selectedValueMF: null,
+    selectedValueMFT: null,
   };
 
-  handleChange = (e, key) => {
-    this.setState({ [`${key}`]: e.target.value })
+  handleSelect = (key) => (selectedValue) => {
+    this.setState({ [key]: selectedValue });
   };
 
-  handleSubmit = (e) => {
-    e.preventDefault();
-    this.setState({buttonClicked: true})
-    this.props.getStockDataForAnalysis(this.state.url).then(res => {
-      this.setState({ plainUrl: res.data.plainUrl });
-    });
-    // axios.get('/api/stock/data', {
-    //   params: {
-    //     url: this.state.url,
-    //   }
-    // }).then(res => {
-    //   this.setState({ data: res.data.allStocks })
-    // });
-  };
-
-  handleRowClick = (selectedRowId) => this.setState({ selectedRowId })
-
-  handleGoClick = (id) => {
-    const { plainUrl } = this.state;
-    this.props.saveStockDataForAnalysis(id, plainUrl).then(() => {
-      this.props.history.push(`/datatable/${id}`);
-    })
+  handleSubmitClick = () => {
+    const { selectedValueMF, selectedValueMFT } = this.state;
+    const { history } = this.props;
+    const redirectUrl = `/fundList?mf=${selectedValueMF.value}&mft=${selectedValueMFT.value}`;
+    history.push(redirectUrl);
   };
 
   render() {
-    const { buttonClicked, selectedRowId } = this.state;
-    const { stockData } = this.props;
+    const { selectedValueMF, selectedValueMFT, error } = this.state;
+    const { classes } = this.props;
     return (
-      <div className={`base ${buttonClicked ? 'base-expanded' : ''}`}>
-        <div className="form-wrapper">
-          <form onSubmit={this.handleSubmit}>
-            <input
-              className="main-input"
-              value={this.state.url}
-              type="text"
-              onChange={(e) => this.handleChange(e, 'url')}
+      <main className={classes.main}>
+        <CssBaseline />
+        <Paper className={classes.paper}>
+          <Avatar className={classes.avatar}>
+            <Assessment />
+          </Avatar>
+          <Typography component="h1" variant="h5">
+            Get Started
+          </Typography>
+          <AutoSuggest
+            placeholder="Select Stock"
+            selectedValue={selectedValueMF}
+            data={mfData}
+            handleSelect={this.handleSelect('selectedValueMF')}
+          />
+          <div style={{ marginTop: 20, width: '100%' }}>
+            <AutoSuggest
+              placeholder="Select Type"
+              selectedValue={selectedValueMFT}
+              data={MFTypes}
+              handleSelect={this.handleSelect('selectedValueMFT')}
             />
-            <input className="btn submit-button" type="submit" value="Go"/>
-          </form>
-        </div>
-        <div className="data-container">
+          </div>
           {
-            stockData.allStocks.map((row, rowIndex) => (
-              <DataRow
-                key={`key_row_${rowIndex}`}
-                row={row}
-                rowIndex={rowIndex}
-                handleRowClick={this.handleRowClick}
-                selectedRowId={selectedRowId}
-                handleGoClick={this.handleGoClick}
-              />
-            ))
+            !!error && (
+              <Typography style={{ marginTop: 10 }} component="span" color="secondary">
+                {error}
+              </Typography>
+            )
           }
-        </div>
-      </div>
+          <Button
+            type="submit"
+            fullWidth
+            variant="contained"
+            color="primary"
+            className={classes.submit}
+            onClick={this.handleSubmitClick}
+          >
+            Get List
+          </Button>
+        </Paper>
+      </main>
     );
   }
 }
 
-function mapStateToProps(state) {
-  return {
-    stockData: state.StockData,
-  }
-}
+SignIn.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
 
-function mapDispatchToProps(dispatch) {
-  return {
-    dispatch,
-    ...bindActionCreators({
-        getStockDataForAnalysis,
-        saveStockDataForAnalysis,
-      },
-      dispatch
-    ),
-  };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Form);
+export default withStyles(styles)(SignIn);

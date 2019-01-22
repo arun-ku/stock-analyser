@@ -78,3 +78,7 @@ export const mfNameFetchingUrl = (params) => {
       .replace(TO_DATE_KEY, toDate)
   );
 };
+
+export const getPlainUrl = (mf, mft) => {
+  return `http://portal.amfiindia.com/DownloadNAVHistoryReport_Po.aspx?mf=${mf}&tp=${mft}`
+};
