@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="82207858-cf9b-45bf-a537-b584d57da126" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/client/components/FullScreenLoader/index.js" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/client/components/DataTable/index.js" afterPath="$PROJECT_DIR$/client/components/DataTable/index.js" />
-      <change beforePath="$PROJECT_DIR$/client/components/FundList/index.js" afterPath="$PROJECT_DIR$/client/components/FundList/index.js" />
-      <change beforePath="$PROJECT_DIR$/client/redux/actions/Stock/index.js" afterPath="$PROJECT_DIR$/client/redux/actions/Stock/index.js" />
-      <change beforePath="$PROJECT_DIR$/client/redux/reducers/StockData/index.js" afterPath="$PROJECT_DIR$/client/redux/reducers/StockData/index.js" />
-      <change beforePath="$PROJECT_DIR$/dist/main.js" afterPath="$PROJECT_DIR$/dist/main.js" />
-      <change beforePath="$PROJECT_DIR$/dist/vendor.js" afterPath="$PROJECT_DIR$/dist/vendor.js" />
-    </list>
+    <list default="true" id="82207858-cf9b-45bf-a537-b584d57da126" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -469,12 +460,12 @@
       <workItem from="1547890067435" duration="855000" />
       <workItem from="1548064328688" duration="12677000" />
       <workItem from="1548138873360" duration="4322000" />
-      <workItem from="1548144964978" duration="2092000" />
+      <workItem from="1548144964978" duration="2587000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="127666000" />
+    <option name="totallyTimeSpent" value="128161000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1299" height="743" extended-state="6" />
