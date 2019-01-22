@@ -10,6 +10,7 @@ import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Chip from '@material-ui/core/Chip';
+import Loader from '../FullScreenLoader';
 
 import { getStockList, saveStockDataForAnalysis } from '../../redux/actions/Stock'
 
@@ -93,7 +94,11 @@ class FundList extends Component {
   };
 
   render() {
-    const { classes, stocks } = this.props;
+    const { classes, stocks, stockListStatus } = this.props;
+
+    if (stockListStatus === 'LOADING') {
+      return <Loader />;
+    }
 
     const bull = <span className={classes.bullet}>•</span>;
     return (
@@ -157,6 +162,7 @@ class FundList extends Component {
 const mapStateToProps = state => {
   return {
     stocks: state.StockData.stocks,
+    stockListStatus: state.StockData.stockListStatus,
   };
 };
 

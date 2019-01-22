@@ -30,6 +30,12 @@ export const saveStockDataForAnalysis = (params) => {
 export const getAnalysedData = (params) => {
   return (dispatch, getState) => {
     let count = 0;
+    dispatch({
+      type: 'LOADER',
+      payload: {
+        stockDataStatus: 'LOADING',
+      },
+    });
     axios.get('/api/stock/stockdata', {
       params,
     }).then(res => {
@@ -45,7 +51,13 @@ export const getAnalysedData = (params) => {
               dispatch({
                 type: "STOCK_TABLE_DATA",
                 payload: res.data,
-              })
+              });
+              dispatch({
+                type: 'LOADER',
+                payload: {
+                  stockDataStatus: 'SUCCESS',
+                },
+              });
             }
             if (count >= 6) {
               clearInterval(interval);
@@ -65,7 +77,13 @@ export const getAnalysedData = (params) => {
         dispatch({
           type: "STOCK_TABLE_DATA",
           payload: res.data,
-        })
+        });
+        dispatch({
+          type: 'LOADER',
+          payload: {
+            stockDataStatus: 'SUCCESS',
+          },
+        });
       }
     });
   }
@@ -77,13 +95,25 @@ export const getAnalysedData = (params) => {
 
 export const getStockList = (params) => {
   return (dispatch) => {
+    dispatch({
+      type: 'LOADER',
+      payload: {
+        stockListStatus: 'LOADING',
+      },
+    });
     return axios.get('/api/stock/stocklist', {
       params,
     }).then(res => {
       dispatch({
         type: "SET_STOCK_LIST",
         payload: res.data,
-      })
+      });
+      dispatch({
+        type: 'LOADER',
+        payload: {
+          stockListStatus: 'SUCCESS',
+        },
+      });
     });
   }
 };

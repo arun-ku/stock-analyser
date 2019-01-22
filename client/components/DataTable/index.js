@@ -11,6 +11,8 @@ import { getAnalysedData } from 'Actions';
 import DataRow from './DataRow';
 import DataTableHeader from './DataTableHeader';
 import Analytics from './Analytics/MainTable';
+import Loader from '../FullScreenLoader';
+
 const styles = theme => ({
   root: {
     width: '100%',
@@ -46,7 +48,15 @@ class DataTable extends Component {
   }
 
   render() {
-    const { stockData, stockInfo, classes } = this.props;
+    const { stockData, stockInfo, classes, stockDataStatus } = this.props;
+
+    const loaderMessage = 'Please wait while we load the data. This' +
+      ' can take up to 1 min for the first time.';
+    console.log('stockDataStatus', stockDataStatus)
+    if (stockDataStatus === 'LOADING') {
+      return <Loader message={loaderMessage} />;
+    }
+
     return (
       <div>
         <div>
@@ -93,6 +103,7 @@ function mapStateToProps(state) {
   return {
     stockInfo: state.StockData.stockInfo,
     stockData: state.StockData.stockData,
+    stockDataStatus: state.StockData.stockDataStatus,
   }
 }
 

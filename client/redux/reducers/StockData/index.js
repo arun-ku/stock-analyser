@@ -10,6 +10,8 @@ export default (state = {
       return Object.assign({}, state, { stockData: action.payload.stockData, stockInfo: action.payload.stockInfo });
     case "SET_STOCK_LIST":
       return Object.assign({}, state, { stocks: action.payload.allStocks });
+    case "LOADER":
+      return Object.assign({}, state, { ...action.payload });
     default:
       return state;
   }
